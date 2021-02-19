@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>8-Ball</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <form method="post" action="" id="myForm">
+      <h3>Question Form</h3>
+      <input type="text" id="question" value="Ask me anything!" />
+      <input type="button" id="generateImage" value="Ask" />
+      <!-- <img
+        id="8-Ball"
+        src="https://image.shutterstock.com/image-vector/vector-illustration-billiards-eight-ball-600w-434027581.jpg"
+      /> -->
+    </form>
+    <div id="answers"></div>
+
+    <img
+      src="https://image.shutterstock.com/image-vector/vector-illustration-billiards-eight-ball-600w-434027581.jpg"
+      height="250px"
+      width="250px"
+    />
+
+    <script>
+      var answers = [
+        "It is certain",
+        "It is decidedly so",
+        "Without a doubt",
+        "Yes - definitely",
+        "You may rely on it",
+        "As I see it, yes",
+        "Most likely",
+        "Outlook good",
+        "Yes",
+        "Signs point to yes",
+        "Don't count on it",
+        "My reply is no",
+        "My sources say no",
+        "Outlook not so good",
+        "Very doubtful",
+        "Reply hazy, try again",
+        "Ask again later",
+        "Better not tell you now",
+        "Cannot predict now",
+        "Concentrate and ask again",
+      ];
+
+      var answer = document.getElementById("answers");
+      var input = document.getElementById("generateImage");
+      var question = document.getElementById("question");
+      // This next line will just add it to the <body> tag
+      input.addEventListener("click", function () {
+        var img = document.createElement("img");
+        img.src =
+          "https://image.shutterstock.com/image-vector/vector-illustration-billiards-eight-ball-600w-434027581.jpg";
+        img.width = "100px";
+        img.height = "100px";
+        img.alt = "8-ball image";
+        // div.innerHTML += img;
+        answer.innerHTML += img;
+        if (question.value.length < 1) {
+          alert("Enter a question!");
+        } else {
+          answer.innerText = "";
+          var num = Math.floor(Math.random() * Math.floor(answers.length));
+          answer.innerText = answers[num]; //Insert answers into answer div
+
+          question.innerHTML = question.value;
+        }
+      });
+    </script>
+    <script src="app.js" async defer></script>
+  </body>
+</html>
+
+position: absolute top: -50px;
